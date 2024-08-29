@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Spring-Boot-JPA
+  profiles:
+    active: dev
