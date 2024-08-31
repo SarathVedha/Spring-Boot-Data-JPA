@@ -271,4 +271,11 @@ public class AuthorServiceImpl implements AuthorService {
 
         return authorRepository.findAll(specification).stream().map(authorEntity -> modelMapper.map(authorEntity, Author.class)).toList();
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Map<String, String> getValueFromProcedure(String value) {
+
+        return Map.of("value", authorRepository.getValueFromProcedure(value));
+    }
 }

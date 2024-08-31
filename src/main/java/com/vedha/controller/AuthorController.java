@@ -320,4 +320,18 @@ public class AuthorController {
 
         return ResponseEntity.ok(authorService.getAuthorByNameLikeAndNotLikeAndAgeGreaterThanEqual(likeName, notLikeName, age));
     }
+
+    @Operation(
+            summary = "Get Value From Procedure",
+            description = "Get Value From Procedure"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status 200 OK"
+    )
+    @GetMapping(value = "/get/procedure", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, String>> getValueFromProcedure(@RequestParam String value) {
+
+        return ResponseEntity.ok(authorService.getValueFromProcedure(value));
+    }
 }

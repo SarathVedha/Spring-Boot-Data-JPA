@@ -51,4 +51,6 @@ public interface AuthorService {
     Map<String, String> deleteAuthorsByAgeGreaterThan(int age);
 
     List<Author> getAuthorByNameLikeAndNotLikeAndAgeGreaterThanEqual(String likeName, String notLikeName, int age);
+
+    Map<String, String> getValueFromProcedure(String value);
 }

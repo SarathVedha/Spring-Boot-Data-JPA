@@ -36,6 +36,18 @@ import java.util.Set;
                 )
         }
 )
+@NamedStoredProcedureQuery(
+        name = "callSHA256_HEX",
+        procedureName = "SHA256_HEX",
+        parameters = {
+                @StoredProcedureParameter(
+                        name = "value",
+                        type = String.class,
+                        mode = ParameterMode.IN
+                )
+        },
+        resultClasses = String.class
+)
 public class AuthorEntity extends BaseEntity {
 
     // GenerationType.AUTO is the default strategy,

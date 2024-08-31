@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +41,16 @@ public interface AuthorRepository extends JpaRepository<AuthorEntity, Long>, Jpa
     @Transactional
     @Modifying
     int deleteByAuthorCountryNamedQuery(@Param("country") Country countryCode);
+
+    // Named stored procedure query, defined in entity class
+
+    /**
+     * {call SHA256_HEX(?)}
+     */
+    @Transactional(readOnly = true)
+    @Procedure(name = "callSHA256_HEX")
+    // Named stored procedure query, defined in entity class
+    String getValueFromProcedure(@Param("value") String value);
 
     /**
      * select *
