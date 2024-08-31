@@ -3,7 +3,7 @@ server:
 
 jasypt:
   encryptor:
-    password: vedha
+    password: vedha # Password to jasypt encrypt and decrypt the values
 
 spring:
   h2:
@@ -11,8 +11,11 @@ spring:
       enabled: true
   datasource:
     url: jdbc:h2:mem:db
-    username: admin
-    password: admin
+#    mvn jasypt:encrypt-value -Djasypt.encryptor.password=vedha -Djasypt.plugin.value=admin
+#    mvn jasypt:decrypt-value -Djasypt.encryptor.password=vedha -Djasypt.plugin.value=LJQqKg5E07P0WgEq1/P73R0h/1mp/NKzGrnB5xfjGwL9ltGujAATUbiBi7h3MFnD
+#    mvn jasypt:encrypt -Djasypt.encryptor.password=vedha -Djasypt.plugin.path=file:src/main/resources/application-dev.yml
+    username: ENC(eEdiJLIe/NHVO/YdEAxgkHmaksWJHCoed2XZd8Mopuv0Uiet/x7135xnNaBbN+23)
+    password: ENC(eEdiJLIe/NHVO/YdEAxgkHmaksWJHCoed2XZd8Mopuv0Uiet/x7135xnNaBbN+23)
     name: H2
     hikari:
       pool-name: H2-HikariCP
